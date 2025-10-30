@@ -1,0 +1,83 @@
+@charset "utf-8";
+
+.h-custom-sm {
+    height: 85vh;
+}
+
+table {
+    table-layout: fixed;
+    text-align: center;
+}
+.cssTable1 thead tr th:nth-of-type(3),
+.cssTable1 tr td:nth-of-type(2) {
+    width: 50px;
+}
+
+
+td {
+    vertical-align: middle;
+}
+
+.cellHead-w-custom {
+    width: 140px;
+}
+.cellHead-w-custom-ev {
+    width: 160px;
+    min-width: 160px;
+}
+.cell-w-custom {
+    width: 62px;
+}
+.cell-w-custom-ev {
+    width: 74px;
+}
+
+.fixed-head {
+    position: sticky;
+    left: 0;
+}
+/* 横スク固定 */
+.fixed-col {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    border-right: 1px solid rgba(0, 0, 0, 0.3);
+}
+/* 縦スク固定 */
+.table-fixed thead th {
+    position: sticky;
+    top: 0;
+    z-index: 10; /* 横固定列よりは低いが、コンテンツよりは前面に */
+    background-color: #cfe2ff;;
+}
+/* 左上の角セルを縦横両方で固定 */
+.table-fixed thead .fixed-col {
+    z-index: 11;
+}
+
+.scrollEvent {
+    /* cursor: grab; */
+    user-select: none;
+}
+
+
+@media (max-width: 576px) {
+    form select {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-image: none !important;
+        text-align: center;
+    }
+    .h-custom-sm {
+        height: 90vh;
+    }
+    .cellHead-w-custom {
+        width: 100px;
+    }
+    .cell-w-custom {
+        width: 42px;
+    }
+}
+
+
