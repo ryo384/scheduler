@@ -8,6 +8,10 @@ table {
     table-layout: fixed;
     text-align: center;
 }
+.cssTable1 {
+    width: auto;
+    max-width: fit-content;
+}
 .cssTable1 thead tr th:nth-of-type(3),
 .cssTable1 tr td:nth-of-type(2) {
     width: 50px;
@@ -23,7 +27,6 @@ td {
 }
 .cellHead-w-custom-ev {
     width: 160px;
-    min-width: 160px;
 }
 .cell-w-custom {
     width: 62px;
