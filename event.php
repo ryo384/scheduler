@@ -77,7 +77,7 @@ $templateName = $getTemplate->fetchAll(PDO::FETCH_COLUMN);
                             <?php for($i = 0; $i < count($dateResult); $i++) { ?>
                                 <tr class="accordion-header" id="heading<?=$i?>">
                                     <!-- 日付 -->
-                                    <th class="accordion-button <?= h(array_key_first($dateResult[$i]['weekDay'])) ?>" data-bs-toggle="collapse" data-bs-target="#collapse<?=$i?>" aria-expanded="true" aria-controls="collapse<?= $i ?>">
+                                    <th class="accordion-button cellHead-w-custom-ev <?= h(array_key_first($dateResult[$i]['weekDay'])) ?>" data-bs-toggle="collapse" data-bs-target="#collapse<?=$i?>" aria-expanded="true" aria-controls="collapse<?= $i ?>">
                                         <?= h($dateResult[$i]['responseDate']). '('. h(reset($dateResult[$i]['weekDay'])). ')' ?>
                                     </th>
                                     <td><?= h($dateResult[$i]['timeCount']) ?></td><!-- 時間 -->
@@ -99,18 +99,18 @@ $templateName = $getTemplate->fetchAll(PDO::FETCH_COLUMN);
                                     <tbody>
                                     <?php foreach($dateResult[$i]['timeDetail'] as $row) { ?>
                                         <tr>
-                                        <th class="cellHead-w-custom-ev"></th><!-- 空セル -->
-                                        <td><?= h($row['hour']) ?></td><!-- 時間 -->
-                                        <td><?= h($row['number'][0]) + h($row['number'][1]) ?></td><!-- 人数 -->
-                                        <?php if(isset($row['userResponses'])) { ?>
-                                            <?php foreach($row['userResponses'] as $res) { ?>
-                                                <td><?= h($res) ?></td>
+                                            <th class="cellHead-w-custom-ev"></th><!-- 空セル -->
+                                            <td class="cell-w-custom-ev"><?= h($row['hour']) ?></td><!-- 時間 -->
+                                            <td class="cell-w-custom-ev"><?= h($row['number'][0]) + h($row['number'][1]) ?></td><!-- 人数 -->
+                                            <?php if(isset($row['userResponses'])) { ?>
+                                                <?php foreach($row['userResponses'] as $res) { ?>
+                                                    <td class="cell-w-custom-ev"><?= h($res) ?></td>
+                                                <?php } ?>
+                                            <?php } else { ?>
+                                                <?php foreach($joinUsersId as $id) { ?>
+                                                    <td class="cell-w-custom-ev">-</td>
+                                                <?php } ?>
                                             <?php } ?>
-                                        <?php } else { ?>
-                                            <?php foreach($joinUsersId as $id) { ?>
-                                                <td>-</td>
-                                            <?php } ?>
-                                        <?php } ?>
                                         </tr>
                                     <?php } ?>
                                     </tbody>
@@ -119,7 +119,7 @@ $templateName = $getTemplate->fetchAll(PDO::FETCH_COLUMN);
                                     </tr>
                             <?php } ?>
                             <tr>
-                                <th>コメント</th>
+                                <th class="cellHead-w-custom-ev">コメント</th>
                                 <td></td>
                                 <td></td>
                                 <!-- ユーザーコメント -->
